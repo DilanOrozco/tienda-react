@@ -20,5 +20,18 @@ export const mockVinyls = [
         description: "El icónico álbum de los 90 en vinilo.",
         price: 54.99,
         image: "https://udiscovermusic.co/cdn/shop/files/Nirvana_Nevermind_1024x1024_0e798929-d369-472a-94aa-9b21ef88a68b.png?v=1717020351"
+    }, {
+        id: 4,
+        title: "The Beatles - Abbey Road",
+        description: "Edición especial en vinilo de uno de los discos más icónicos de la historia.",
+        price: 59.99,
+        image: "https://udiscovermusic.co/cdn/shop/files/602577915123_-_abbey_road_anniversary_lp_-_A.png?v=1719440855"
+    }, {
+        id: 5,
+        title: "Led Zeppelin - IV",
+        description: "Incluye clásicos como Stairway to Heaven. Una joya del rock.",
+        price: 64.99,
+        image: "https://thesoundofvinyl.us/cdn/shop/products/led.png?v=1664400466"
     }
+
 ];

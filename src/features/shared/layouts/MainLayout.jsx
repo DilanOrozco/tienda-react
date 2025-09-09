@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 
-export function MainLayout() {
+export function MainLayout({cart}) {
   const layoutStyle = { 
     display: 'flex', 
     flexDirection: 'column', 
@@ -16,7 +16,7 @@ export function MainLayout() {
 
   return (
     <div style={layoutStyle}>
-      <Header />
+      <Header cart={cart} />
       <main style={mainStyle}>
         <Outlet /> {/* Las páginas se renderizan aquí */}
       </main>

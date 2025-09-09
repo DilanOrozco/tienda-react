@@ -1,28 +1,23 @@
-// src/features/cart/pages/CartPage.jsx
-import { useCart } from "../context/CartContext";
+import "./CartPage.css";
 
-export const CartPage = () => {
-    const { cart, removeFromCart, getTotal } = useCart();
-
+export const CartPage = ({ cart, removeFromCart, getTotal }) => {
     return (
-        <div style={{ padding: "2rem" }}>
-            <h1>Carrito de compras</h1>
-
+        <div className="cart-page">
+            <h2>Carrito</h2>
             {cart.length === 0 ? (
-                <p>No hay productos en el carrito.</p>
+                <p>Tu carrito está vacío</p>
             ) : (
-                <div>
-                    <ul>
-                        {cart.map((item, index) => (
-                            <li key={index} style={{ marginBottom: "1rem" }}>
-                                <img src={item.image} alt={item.title} width={60} />
-                                <strong>{item.title}</strong> - ${item.price}
-                                <button onClick={() => removeFromCart(index)}>❌</button>
-                            </li>
-                        ))}
-                    </ul>
-                    <h2>Total: ${getTotal()}</h2>
-                </div>
+                <>
+                    {cart.map((item, index) => (
+                        <div className="cart-item" key={index}>
+                            <span>
+                                {item.title} - ${item.price}
+                            </span>
+                            <button onClick={() => removeFromCart(index)}>Quitar</button>
+                        </div>
+                    ))}
+                    <h3>Total: ${getTotal()}</h3>
+                </>
             )}
         </div>
     );

@@ -1,18 +1,14 @@
-// src/features/products/components/ProductList.jsx
-import ProductCard from "./ProductCard"
+import "./ProductCard.css";
+import ProductCard from "./ProductCard";
 
-const ProductList = ({ products, onAddToCart }) => {
+const ProductList = ({ products, addToCart }) => {
     return (
-        <div className="list">
-            {products.map((vinyl) => (
-                <ProductCard 
-                    key={vinyl.id} 
-                    product={vinyl} 
-                    onAddToCart={onAddToCart}
-                />
+        <div className="product-list">
+            {products.map((product, index) => (
+                <ProductCard key={index} product={product} addToCart={addToCart} />
             ))}
         </div>
-    )
-}
+    );
+};
 
-export default ProductList
+export default ProductList;
