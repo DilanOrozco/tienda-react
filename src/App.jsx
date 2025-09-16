@@ -4,7 +4,7 @@ import { MainLayout } from "./features/shared/layouts/MainLayout";
 import { HomePage } from "./features/HomePage/pages/HomePage";
 import ProductsPage from "./features/products/pages/ProductsPage";
 import { CartPage } from "./features/cart/pages/CartPage";
-
+import { ContactPage } from "./features/contact/pages/ContactPage";
 function App() {
   // Estado global
   const [cart, setCart] = useState([]);
@@ -57,7 +57,7 @@ function App() {
             )
           }
         />
-        
+        <Route path="contact" element={<ContactPage />} />
         <Route
           path="cart"
           element={

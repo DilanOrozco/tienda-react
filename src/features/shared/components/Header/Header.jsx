@@ -45,6 +45,16 @@ export function Header({ cart }) {
         </NavLink>
 
         <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? styles.activeLink : styles.link
+          }
+          onClick={() => setMenuOpen(false)}
+        >
+          Contactanos
+        </NavLink>
+
+        <NavLink
           to="/cart"
           className={({ isActive }) =>
             isActive
