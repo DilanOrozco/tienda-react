@@ -16,10 +16,15 @@
     border-radius: 8px;
     padding: 10px 15px;
     margin-bottom: 10px;
+    gap: 10px;
 }
 
 .cart-item span {
     font-size: 1rem;
+    flex: 1;
+    /* se adapta al espacio */
+    word-break: break-word;
+    /* evita que textos largos rompan el layout */
 }
 
 .cart-item button {
@@ -30,6 +35,8 @@
     color: white;
     cursor: pointer;
     transition: background 0.2s ease;
+    white-space: nowrap;
+    /* el botón no se parte en dos líneas */
 }
 
 .cart-item button:hover {
@@ -40,4 +47,22 @@
     margin-top: 20px;
     font-size: 1.4rem;
     color: #222;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+    }
+
+    .cart-item span {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+
+    .cart-item button {
+        align-self: flex-end;
+    }
 }

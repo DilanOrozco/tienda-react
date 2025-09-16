@@ -1,23 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 
 export function Header({ cart }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className={styles.header}>
+      {/* Logo + título */}
       <NavLink to="/" className={styles.logo}>
-        <img src="../../../../assets/logo-vinilos.png" alt="Logo Vinilos" />
-        Mi Tienda Vinilos
+        <span>Vinilos Retro</span>
       </NavLink>
 
-      <nav className={styles.nav}>
+      {/* Botón hamburguesa */}
+      <div
+        className={styles.menuToggle}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      {/* Navegación */}
+      <nav className={`${styles.nav} ${menuOpen ? styles.open : ""}`}>
         <NavLink
           to="/"
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.link
           }
+          onClick={() => setMenuOpen(false)}
         >
-          Dashboard
+          Home
         </NavLink>
 
         <NavLink
@@ -25,6 +39,7 @@ export function Header({ cart }) {
           className={({ isActive }) =>
             isActive ? styles.activeLink : styles.link
           }
+          onClick={() => setMenuOpen(false)}
         >
           Productos
         </NavLink>
@@ -36,6 +51,7 @@ export function Header({ cart }) {
               ? `${styles.activeLink} ${styles.cartLink}`
               : `${styles.link} ${styles.cartLink}`
           }
+          onClick={() => setMenuOpen(false)}
         >
           Carrito
           {cart.length > 0 && (

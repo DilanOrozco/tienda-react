@@ -1,0 +1,77 @@
+.home {
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+/* Hero */
+.hero {
+    background: url("https://thumbs.dreamstime.com/b/estanter%C3%ADa-de-madera-antigua-estante-retro-decoraci%C3%B3n-ilustraci%C3%B3n-vinilo-c%C3%A1maras-muestran-una-c%C3%B3moda-sin-patas-generada-por-370513944.jpg") no-repeat center/cover;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    padding: 12px 24px;
+    background: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: #e73370;
+}
+
+/* Featured */
+.featured {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.featured h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    margin: 8px 0;
+}
+
+.card p {
+    color: #ff4081;
+    font-weight: bold;
+}
