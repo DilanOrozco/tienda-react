@@ -1,51 +1,48 @@
-import React, { useState } from "react";
-import "../css/ContactPage.css";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
-export function ContactForm() {
-    const [formData, setFormData] = useState({
-        nombre: "",
-        email: "",
-        mensaje: "",
-    });
+export const ContactForm = () => {
+    const form = useRef();
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
-    const handleSubmit = (e) => {
+    const sendEmail = (e) => {
         e.preventDefault();
-        alert("Mensaje enviado ✅ (aquí iría tu lógica con backend o email service)");
-        setFormData({ nombre: "", email: "", mensaje: "" });
+
+        emailjs
+            .sendForm("service_xamy7fb", "template_gv9tbyd", form.current, {
+                publicKey: "u5fOQmuPyReDqhWYu",
+            })
+            .then(
+                () => {
+                    console.log("SUCCESS!");
+                    form.current.reset(); // 🔥 limpia los inputs
+                },
+                (error) => {
+                    console.log("FAILED...", error.text);
+                }
+            );
     };
 
     return (
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
             <input
                 type="text"
-                name="nombre"
-                placeholder="Tu nombre"
-                value={formData.nombre}
-                onChange={handleChange}
+                name="user_name"
+                placeholder="Your Name"
                 required
             />
             <input
                 type="email"
-                name="email"
-                placeholder="Tu correo"
-                value={formData.email}
-                onChange={handleChange}
+                name="user_email"
+                placeholder="Your Email"
                 required
             />
             <textarea
-                name="mensaje"
-                placeholder="Escribe tu mensaje..."
+                name="message"
                 rows="5"
-                value={formData.mensaje}
-                onChange={handleChange}
+                placeholder="Write your message here..."
                 required
-            ></textarea>
-            <button type="submit">Enviar</button>
+            />
+            <button type="submit">Send Message</button>
         </form>
     );
-}
+};
